@@ -10,6 +10,10 @@ module.exports = (connection) => {
 
   app.use('/user', userConfig(connection));
 
+  app.get('/', (req, res) => {
+    res.send('root route');
+  });
+
   app.use(clientError);
   app.use(serverError);
 
