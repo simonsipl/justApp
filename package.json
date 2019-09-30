@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": "12.x"
+    "node": "10.x"
   },
   "main": "src/server.js",
   "dependencies": {
     "@hapi/joi": "^16.1.4",
     "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.2",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "lodash.mapvalues": "^4.6.0",
@@ -24,7 +25,10 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=production node src/server.js",
-    "dev": "cross-env NODE_ENV=dev nodemon src/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "serve": "cross-env NODE_ENV=dev nodemon src/server.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run serve\" \"npm run client\"",
     "lint": "cross-env eslint src/**/*.js --fix"
   },
   "author": "Szymon Stanisz",
