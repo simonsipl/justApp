@@ -1,5 +1,5 @@
 {
-  "name": "employee-worker",
+  "name": "just-app",
   "version": "1.0.0",
   "description": "",
   "engines": {
@@ -25,9 +25,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node src/server.js",
     "dev": "cross-env NODE_ENV=dev nodemon src/server.js",
-    "lint": "cross-env eslint src/**/*.js --fix",
-    "format": "cross-env prettier-eslint 'server/**/*.{js,json}' --write"
+    "lint": "cross-env eslint src/**/*.js --fix"
   },
-  "author": "",
+  "author": "Szymon Stanisz",
   "license": "ISC"
 }
