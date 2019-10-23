@@ -5,12 +5,12 @@ module.exports = (connection) => {
             return users.findOne({email})
         },
 
-        async register({ email, password }) {
+        async register({ email, password, userData = {} }) {
             return users.insertOne(
                 {
                     email,
                     password,
-                    userData: {}
+                    userData
                 }
             );
         }
